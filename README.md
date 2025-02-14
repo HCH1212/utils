@@ -6,7 +6,7 @@
     <li>log: 自定义日志样式</li>
     <li>to: 转换相关</li>
     <li>sort: 排序</li>
-    <li>conf: 配置文件相关</li>
+    <li>conf: 配置文件相关(模板)</li>
     <li>resp: 回复格式相关</li>
     <li>middleware: 跨域中间件</li>
     <li>mysql: mysql初始化</li>

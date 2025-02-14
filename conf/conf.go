@@ -1,6 +1,6 @@
 package conf
 
-// 实际使用时应设置环境变量来选择对应test/dev/online，默认是test
+// 实际使用时将此作为模板即可
 
 import (
 	"gopkg.in/validator.v2"
@@ -77,8 +77,6 @@ func initConf() {
 	}
 
 	conf.Env = GetEnv()
-
-	//log.Printf("%+v\n", conf)
 }
 
 func GetEnv() string {

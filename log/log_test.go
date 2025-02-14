@@ -8,7 +8,7 @@ import (
 func Test(t *testing.T) {
 	logrus.Info("hello world")
 
-	InitDefaultLogger()
+	InitDefaultLogger("[OKOK]")
 	logrus.Info("hello world")
 	logrus.Warn("hello world")
 	logrus.Error("hello world")

@@ -10,7 +10,7 @@ func Test(t *testing.T) {
 	gin.SetMode(gin.ReleaseMode)
 
 	router.GET("/", func(c *gin.Context) {
-		Success(c, "成功", nil)
+		SuccessGin(c, "成功", nil)
 	})
 
 	router.Run(":8080")

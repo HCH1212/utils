@@ -9,7 +9,7 @@ func Test(t *testing.T) {
 	router := gin.New()
 	gin.SetMode(gin.ReleaseMode)
 
-	router.Use(Cors())
+	router.Use(CorsGin())
 
 	router.Run(":8080")
 }

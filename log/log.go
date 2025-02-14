@@ -16,10 +16,9 @@ const (
 	gray   = 37
 )
 
-// 实际使用时请自定义
-const Prefix = "[前缀]"
-
-type LogFormatter struct{}
+type LogFormatter struct {
+	Prefix string
+}
 
 func (f *LogFormatter) Format(entry *logrus.Entry) ([]byte, error) {
 	// 根据不同的level去展示颜色
@@ -41,7 +40,7 @@ func (f *LogFormatter) Format(entry *logrus.Entry) ([]byte, error) {
 	} else {
 		b = &bytes.Buffer{}
 	}
-	logPrefix := Prefix
+	logPrefix := f.Prefix
 	timestamp := entry.Time.Format("2006-01-02 15:04:05")
 	if entry.HasCaller() {
 		//	 自定义文件路径
@@ -56,10 +55,10 @@ func (f *LogFormatter) Format(entry *logrus.Entry) ([]byte, error) {
 	return b.Bytes(), nil
 }
 
-func InitDefaultLogger() {
+func InitDefaultLogger(prefix string) {
 	// 全局log
-	logrus.SetOutput(os.Stdout)          // 设置输出类型
-	logrus.SetFormatter(&LogFormatter{}) // 设置自己定义的formatter
+	logrus.SetOutput(os.Stdout)                        // 设置输出类型
+	logrus.SetFormatter(&LogFormatter{Prefix: prefix}) // 设置自己定义的formatter
 	level, err := logrus.ParseLevel("info")
 	if err != nil {
 		level = logrus.InfoLevel
